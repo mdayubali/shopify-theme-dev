@@ -1,6 +1,6 @@
 <div class="announcementbar">
     <div class="container-fluid bg-dark">
-        <p class="text-center text-white">50% off for the limited time</p>
+        <p class="text-center text-white">{{ section.settings.announce }}</p>
     </div>
 </div>
 
@@ -8,7 +8,12 @@
 {
     "name": "Announcementbar",
     "settings": [
-        
+        {
+            "type": "text",
+            "id": "announce",
+            "label": "Announcement Text",
+            "default": "50% off for U.S based Shop"
+        }
         ]
 }
 {% endschema %}
