@@ -1,9 +1,81 @@
 <div class="image-banner-{{section.id}}">
-    Image Banner tested done
+    <div class="image-banner-main position-relative">
+        {%  assign image_height =  section.settings.image.width |  divided_by: section.settings.image.aspect_ratio %} 
+        {% if section.settings.image !=blank %}
+           {% comment %} {{ section.settings.image | image_url: width: 2100 |  image_tag: widths: '375, 575, 750,1100, 1200, 1400', 
+           alt:"image-banner",
+           fetchpriority: 'auto'
+           }} {% endcomment %}
+           {{ section.settings.image |  image_url : width: 2100  |  image_tag: widths: '350,575,700, 960, 1400, 1600, 1800, 2100', alt: 'image-banner'}}"
+            {% else %}
+                {{ 'hero-apparel-1' |  placeholder_svg_tag }}
+        {% endif %}
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <div class="banner-content">
+            {{ section.settings.heading }}
+            {{ section.settings.product_des }}
+            <div class="banner-cta">
+                <div class="cta-action">
+                    <a href="{{ section.settings.button_url }}" class="btn btn-primary"> {{ section.settings.button_label }} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
+
+{%  style  %} 
+    .banner-content{
+        max-width: {{ section.settings.content_width }}%;
+    }
+{% endstyle %} 
+
 {% schema  %} 
 {
     "name": "Image Banner",
-    "settings": []
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "header",
+            "content": "Banner Content"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Product tile",
+            "default": "<h1 class='display-4'>Add Your Product Title Here</h1>"
+        },
+        {
+            "type": "richtext"  ,
+            "id": "product_des",
+            "label": "Your Product Content",
+            "default": "<p>lorem isSit amet culpa amet excepteur reprehenderit.</p>"    
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Buy Now"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button Link"
+        },
+        {
+            "type": "range",
+            "id": "content_width",
+            "label": "Content Width",
+            "min": 60,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "default": 60
+        }
+    ]
 }
 {% endschema %}
