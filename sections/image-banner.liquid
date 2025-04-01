@@ -6,7 +6,8 @@
            alt:"image-banner",
            fetchpriority: 'auto'
            }} {% endcomment %}
-           {{ section.settings.image |  image_url : width: 2100  |  image_tag: widths: '350,575,700, 960, 1400, 1600, 1800, 2100', alt: 'image-banner'}}"
+          <img class="img-fluid" src="{{ section.settings.image |  image_url : width: 2100  |  image_tag: widths: '350,575,700, 960, 1400, 1600, 1800, 2100', alt: 'image-banner'}}" />
+
             {% else %}
                 {{ 'hero-apparel-1' |  placeholder_svg_tag }}
         {% endif %}
