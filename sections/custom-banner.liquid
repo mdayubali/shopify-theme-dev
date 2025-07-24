@@ -1,0 +1,68 @@
+{% schema %}
+{
+    "name": "Custom Hero Banner",
+    "tag": "section",
+    "class": "custom-banner",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "custom_logo",
+            "label": "Add Logo"
+        },
+        {
+            "type": "image_picker",
+            "id": "heroimage",
+            "label": "Hero Banner Image"
+        },
+        {
+            "type": "text",
+            "id": "bannerheading",
+            "label": "Banner Heading",
+            "default": "<h3>in just one minute!</h3>"
+        },
+        {
+            "type": "textarea",
+            "id": "subheading",
+            "label": "Heading text",
+            "default": "<h2>Make Deli-Grade Pickles at Home</h2>"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Order Your Kit Now"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button Link"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "review",
+            "name": "Reviews",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "review",
+                    "label": "Write Reviews",
+                    "default": "I’ve never tasted pickles this good outside a deli!"
+                },
+                {
+                    "type": "text",
+                    "id": "client_name",
+                    "label": "Client Name",
+                    "default": "David.L"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Custom Hero Banner"
+        }
+    ]
+}
+{% endschema %}
